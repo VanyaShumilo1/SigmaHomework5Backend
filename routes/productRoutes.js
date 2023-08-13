@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
         const product = await ProductModel.create({
             title: req.body.title,
             imageUrl: req.body.imageUrl,
-            discount: true,
+            discount: req.body.discount,
             originalPrice: req.body.originalPrice,
             discountPrice: req.body.discountPrice
         })
