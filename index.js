@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from "mongoose";
 import multer from "multer";
 import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 dotenv.config()
 const PORT = process.env.PORT || 5000
@@ -33,6 +34,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
 })
 
 app.use('/products', productRoutes)
+app.use('/order', orderRoutes)
 
 const start = async () => {
     try {
