@@ -40,4 +40,26 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const orderId = req.params.id
+        const order = await OrderModel.findOneAndDelete({_id: orderId})
+
+        if(!order) {
+            return res.status(404).json({
+                message: 'order not found'
+            })
+        }
+
+        res.status(200).json(order)
+
+    } catch (err) {
+        res.status(500).json({
+            message: "something went wrong while deleting order",
+            err
+        })
+        console.log(err)
+    }
+})
+
 export default router

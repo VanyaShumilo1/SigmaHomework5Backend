@@ -33,6 +33,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
     })
 })
 
+
 app.use('/products', productRoutes)
 app.use('/order', orderRoutes)
 
