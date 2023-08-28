@@ -12,6 +12,9 @@ const ProductModel = new Schema({
     imageUrl: {
         type: String
     },
+    description: {
+        type: String,
+    },
     discount: {
         type: Boolean,
         required: true
